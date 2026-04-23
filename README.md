@@ -1,7 +1,7 @@
 # Proyecto De Programación
 
 ## Descripción
-Este proyecto está diseñado para ... [Include a brief description of what the project does here.]
+Este proyecto está diseñado para ...
 
 ## Instrucciones
 1. Clone el repositorio usando `git clone <repository-url>`.
