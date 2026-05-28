@@ -1,0 +1,122 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-input-bg: var(--input-bg);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-blue: var(--accent-blue);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-state-success: var(--state-success);
+  --color-state-warning: var(--state-warning);
+  --color-state-error: var(--state-error);
+  --color-state-info: var(--state-info);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* AulaHub dark palette (only theme) */
+  --background: oklch(0.16 0.04 265);          /* #020B24-ish */
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.21 0.04 265);                /* #0F1629 */
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.21 0.04 265);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.83 0.16 200);             /* #28E0E9 cyan */
+  --primary-foreground: oklch(0.16 0.04 265);
+  --secondary: oklch(0.24 0.04 265);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.24 0.04 265);
+  --muted-foreground: oklch(0.68 0.05 260);    /* #8B9CC8 */
+  --accent: oklch(0.24 0.05 250);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.65 0.23 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.83 0.16 200);
+
+  --sidebar-bg: oklch(0.19 0.04 265);          /* #08152F */
+  --input-bg: oklch(0.19 0.04 265);            /* #0A1428 */
+  --accent-cyan: oklch(0.83 0.16 200);
+  --accent-blue: oklch(0.66 0.18 260);         /* #4B8DFF */
+  --text-secondary: oklch(0.68 0.05 260);
+  --text-muted: oklch(0.48 0.05 265);          /* #4A5578 */
+  --state-success: oklch(0.72 0.18 145);
+  --state-warning: oklch(0.78 0.16 70);
+  --state-error: oklch(0.65 0.23 25);
+  --state-info: oklch(0.66 0.18 260);
+
+  --gradient-radial: radial-gradient(ellipse at center, oklch(0.25 0.10 265) 0%, oklch(0.13 0.04 265) 70%);
+  --shadow-card: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 12px rgba(40,224,233,0.35);
+  --shadow-glow-soft: 0 0 24px rgba(40,224,233,0.15);
+}
+
+.dark {
+  --background: oklch(0.16 0.04 265);
+  --foreground: oklch(1 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-radial-hero {
+    background-image: var(--gradient-radial);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-glow-soft {
+    box-shadow: var(--shadow-glow-soft);
+  }
+  .glass {
+    background-color: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+  }
+}
