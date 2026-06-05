@@ -26,7 +26,7 @@ function stateBadge(s: "pending" | "approved" | "rejected") {
 function ProfDashboard() {
   return (
     <>
-      <AppHeader title="Bienvenido, Prof. García" subtitle="Resumen de tu actividad académica para hoy." />
+      <AppHeader title="Bienvenido, Prof. García" subtitle="Resumen de tu actividad académica para hoy." role="profesor" />
       <main className="p-4 sm:p-6 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex flex-wrap gap-2">

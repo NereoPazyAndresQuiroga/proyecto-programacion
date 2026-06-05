@@ -23,18 +23,41 @@ function LoginPage() {
   const [error, setError] = useState(false);
   const [dni, setDni] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (dni.length < 7 || !password) {
       setError(true);
       return;
     }
-    // Mock: si DNI termina en 1 → multi-rol, si no → directo a alumno
-    if (dni.endsWith("1")) navigate({ to: "/select-role" });
-    else if (dni.endsWith("2")) navigate({ to: "/profesor" });
-    else if (dni.endsWith("3")) navigate({ to: "/admin" });
-    else navigate({ to: "/alumno" });
+    setError(false);
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dni, password }),
+      });
+
+    const data = await res.json();
+
+      if (!data.ok) {
+        setError(true);
+        setLoading(false);
+        return;
+      }
+
+      if (data.rol === 'alumno') navigate({ to: '/alumno' });
+      else if (data.rol === 'profesor') navigate({ to: '/profesor' });
+      else if (data.rol === 'admin') navigate({ to: '/admin' });
+
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

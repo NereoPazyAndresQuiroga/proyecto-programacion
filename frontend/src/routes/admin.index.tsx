@@ -35,7 +35,7 @@ const pending = [
 function AdminDashboard() {
   return (
     <>
-      <AppHeader title="Panel General" subtitle="Vista global de la institución." />
+      <AppHeader title="Panel General" subtitle="Vista global de la institución." role="admin"/>
       <main className="p-4 sm:p-6 space-y-6">
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
           {kpis.map((k) => (

@@ -18,7 +18,7 @@ const avisos = [
 function AlumnoDashboard() {
   return (
     <>
-      <AppHeader title="Hola, Martina" subtitle="Acá está tu semana en AulaHub." />
+      <AppHeader title="Hola, Martina" subtitle="Acá está tu semana en AulaHub." role="alumno" />
       <main className="p-4 sm:p-6 grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-6">
         <div className="min-w-0">
           <ScheduleGrid />
